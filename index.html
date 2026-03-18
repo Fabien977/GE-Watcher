@@ -285,7 +285,7 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
 .cm-range.active{color:var(--teal);border-color:var(--teal-dim);background:var(--teal-glow)}
 .cm-chart-wrap{position:relative;flex:1;padding:8px 18px 14px;min-height:0}
 #chartCanvas{width:100%;height:100%;display:block}
-.cm-tooltip{position:absolute;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:8px 10px;pointer-events:none;min-width:160px;box-shadow:var(--shadow);font-size:11px}
+.cm-tooltip{position:absolute;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:8px 10px;pointer-events:none;min-width:200px;box-shadow:var(--shadow);font-size:11px}
 .cm-tt-date{font-weight:700;color:var(--text);margin-bottom:5px;font-size:11.5px}
 .cm-tt-row{display:flex;justify-content:space-between;gap:16px;color:var(--text2);margin-top:2px}
 .cm-tt-row span:last-child{font-family:'JetBrains Mono',monospace;color:var(--text);font-weight:600}
@@ -321,6 +321,68 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
 /* ── SECTION HEADING ── */
 .section-head{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:1px;text-transform:uppercase;padding:6px 13px;border-bottom:1px solid var(--border2);background:var(--bg3)}
 
+/* ── MARKET CLOCK ── */
+.market-clock{display:flex;align-items:center;gap:8px;padding:4px 11px;border-radius:20px;border:1px solid var(--border);background:var(--bg3);font-size:10px;font-family:'JetBrains Mono',monospace;cursor:default;position:relative}
+.market-clock:hover .clock-tooltip{display:block}
+.clock-time{color:var(--text2);font-weight:600;letter-spacing:.5px}
+.clock-phase{font-weight:700;padding:1px 6px;border-radius:10px;font-size:9px;letter-spacing:.4px;text-transform:uppercase}
+.clock-phase.offpeak{color:var(--text3);background:var(--bg4);border:1px solid var(--border)}
+.clock-phase.eu{color:#60a5fa;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.25)}
+.clock-phase.na{color:var(--green);background:var(--green-dim);border:1px solid rgba(57,211,83,.25)}
+.clock-phase.peak{color:var(--gold);background:var(--gold-dim);border:1px solid rgba(255,209,102,.3);animation:pulse 2s infinite}
+.clock-phase.weekend{color:var(--purple);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25)}
+.clock-tooltip{display:none;position:absolute;top:calc(100% + 8px);right:0;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:10px 12px;white-space:nowrap;z-index:400;box-shadow:var(--shadow);min-width:220px}
+.clock-tooltip-row{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--text2);margin-bottom:5px;font-family:'Space Grotesk',sans-serif}
+.clock-tooltip-row:last-child{margin-bottom:0}
+.clock-tooltip-row strong{color:var(--text);font-weight:600}
+
+/* ── ITEM CATEGORY TAGS ── */
+.cat-tag{display:inline-flex;align-items:center;gap:2px;font-size:8.5px;font-weight:700;padding:1px 5px;border-radius:6px;letter-spacing:.3px;white-space:nowrap}
+.cat-tag.rune{color:#60a5fa;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.2)}
+.cat-tag.potion{color:#a78bfa;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2)}
+.cat-tag.food{color:#fb923c;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.2)}
+.cat-tag.ammo{color:var(--yellow);background:rgba(245,197,66,.1);border:1px solid rgba(245,197,66,.2)}
+.cat-tag.gear{color:var(--teal);background:var(--teal-glow);border:1px solid rgba(0,212,170,.2)}
+.cat-tag.herb{color:#4ade80;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2)}
+.cat-tag.bar{color:#94a3b8;background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.2)}
+.cat-tag.log{color:#a3855a;background:rgba(163,133,90,.1);border:1px solid rgba(163,133,90,.2)}
+.cat-tag.misc{color:var(--text3);background:var(--bg4);border:1px solid var(--border)}
+
+/* ── ALCH BADGE ── */
+.alch-good{color:var(--green);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700}
+.alch-bad{color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:10.5px}
+
+/* ── ALCH PANEL ── */
+.alch-panel{border-color:rgba(57,211,83,.2)}
+.alch-info-strip{display:flex;align-items:center;gap:6px;padding:5px 13px;background:var(--bg3);border-bottom:1px solid var(--border2);flex-wrap:wrap;font-size:10px}
+.alch-info-pill{display:inline-block;padding:1px 7px;border-radius:8px;font-size:9px;font-weight:700;letter-spacing:.3px;white-space:nowrap}
+.alch-info-pill.green{color:var(--green);background:var(--green-dim);border:1px solid rgba(57,211,83,.2)}
+.alch-info-pill.grey{color:var(--text3);background:var(--bg4);border:1px solid var(--border)}
+.alch-info-pill.gold{color:var(--gold);background:var(--gold-dim);border:1px solid rgba(255,209,102,.2)}
+
+.alch-scroll-row{display:flex;gap:8px;padding:10px 13px;overflow-x:auto;min-height:80px;align-items:stretch}
+.alch-scroll-row::-webkit-scrollbar{height:4px}
+.alch-scroll-row::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.alch-card{flex-shrink:0;width:190px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer;transition:border-color .15s,background .15s;display:flex;flex-direction:column;gap:5px;position:relative;overflow:hidden}
+.alch-card:hover{border-color:var(--teal-dim);background:var(--bg4)}
+.alch-card.profitable{border-left:2px solid var(--green)}
+.alch-card.dual{border-left:2px solid var(--gold);background:rgba(255,209,102,.03)}
+.alch-card.dual:hover{border-color:var(--gold)}
+.alch-card-rank{position:absolute;top:7px;right:8px;font-size:9px;font-weight:700;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.alch-card-name{font-size:11.5px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:18px}
+.alch-card-img{display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.alch-card-profit{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;line-height:1}
+.alch-card-profit.pos{color:var(--green)}
+.alch-card-profit.neg{color:var(--text3)}
+.alch-card-row{display:flex;justify-content:space-between;font-size:10px;color:var(--text3)}
+.alch-card-row span:last-child{font-family:'JetBrains Mono',monospace;color:var(--text2);font-size:10px}
+.alch-card-dual-badge{display:inline-flex;align-items:center;gap:3px;font-size:8.5px;font-weight:700;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(255,209,102,.2);border-radius:6px;padding:1px 5px}
+.alch-empty{color:var(--text3);font-size:12px;display:flex;align-items:center;justify-content:center;width:100%;padding:12px 0}
+
+.alch-collapsed .alch-info-strip,.alch-collapsed .alch-scroll-row{display:none}
+.alch-collapsed .alch-panel{margin:0}
+
 /* ── MANIPULATION WARNING ── */
 .manip-banner{display:flex;align-items:center;gap:8px;padding:8px 13px;background:rgba(167,139,250,0.06);border-bottom:1px solid rgba(167,139,250,.2);font-size:11px;color:var(--purple);font-weight:600}
 
@@ -348,6 +410,17 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
     <button class="nav-tab" onclick="setTab('history',this)">Alert History</button>
   </nav>
   <div class="header-right">
+    <div class="market-clock" id="marketClock">
+      <span class="clock-time" id="clockUtc">00:00 UTC</span>
+      <span class="clock-phase offpeak" id="clockPhase">OFF-PEAK</span>
+      <div class="clock-tooltip">
+        <div class="clock-tooltip-row">🕐 <strong>Off-peak</strong> 00:00–11:00 UTC — widest spreads, overnight flips</div>
+        <div class="clock-tooltip-row">🇪🇺 <strong>EU Peak</strong> 11:00–18:00 UTC — active market, tighter margins</div>
+        <div class="clock-tooltip-row">🌍 <strong>Overlap</strong> 17:00–22:00 UTC — highest volume, fastest fills</div>
+        <div class="clock-tooltip-row">🇺🇸 <strong>NA Peak</strong> 22:00–02:00 UTC — good activity, slight margin recovery</div>
+        <div class="clock-tooltip-row">📅 <strong>Weekend bonus</strong> — more PvM drops → lower gear prices</div>
+      </div>
+    </div>
     <div class="live-badge"><div class="live-dot" id="liveDot"></div><span id="liveText">IDLE</span></div>
     <button class="hdr-btn on" id="soundBtn" onclick="toggleSound()">🔔 Sound</button>
   </div>
@@ -505,6 +578,40 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
           <div class="card p"><div class="cl2">Last Updated</div><div class="cv" id="d-lastupdated" style="font-size:14px;color:var(--blue)">—</div><div class="csub">auto-refreshing</div></div>
         </div>
 
+        <!-- ── HIGH ALCH BAR ── -->
+        <div class="panel alch-panel">
+          <div class="ph" style="background:rgba(57,211,83,.03);cursor:pointer;user-select:none" onclick="toggleAlchPanel()">
+            <div class="pt">
+              <span style="font-size:15px;line-height:1">⚗️</span>
+              <span>High Alch Opportunities</span>
+              <span class="ctag" id="alchCnt">0</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+              <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text3)">
+                <span>Nature rune:</span>
+                <span id="alchNatCost" style="color:var(--teal);font-family:'JetBrains Mono',monospace;font-weight:600">—</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text3)">
+                <span>Sort:</span>
+                <button class="buy-sort-btn active" id="alch-sort-profit" onclick="event.stopPropagation();setAlchSort('profit',this)" style="padding:2px 8px;font-size:10px">💰 Profit</button>
+                <button class="buy-sort-btn" id="alch-sort-roi" onclick="event.stopPropagation();setAlchSort('roi',this)" style="padding:2px 8px;font-size:10px">📈 ROI%</button>
+                <button class="buy-sort-btn" id="alch-sort-vol" onclick="event.stopPropagation();setAlchSort('vol',this)" style="padding:2px 8px;font-size:10px">🔥 Volume</button>
+              </div>
+              <span id="alchChevron" style="font-size:11px;color:var(--text3);transition:transform .2s">▼</span>
+            </div>
+          </div>
+          <!-- Alch info strip -->
+          <div class="alch-info-strip">
+            <span class="alch-info-pill green">✓ Alch profitable</span><span style="font-size:10px;color:var(--text3)">Buy price + nature rune cost is below alch value — safe price floor</span>
+            <span class="alch-info-pill grey" style="margin-left:14px">✕ Not profitable</span><span style="font-size:10px;color:var(--text3)">Alching would lose GP vs reselling</span>
+            <span class="alch-info-pill gold" style="margin-left:14px">⚡ Alch &amp; Flip</span><span style="font-size:10px;color:var(--text3)">Both alching AND flipping are profitable — double exit strategy</span>
+          </div>
+          <!-- Scrollable alch cards row -->
+          <div class="alch-scroll-row" id="alchBody">
+            <div class="alch-empty">Loading alch data…</div>
+          </div>
+        </div>
+
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div class="panel">
             <div class="ph"><div class="pt"><div class="dot o"></div>Top Flip Opportunities</div><span style="font-size:10px;color:var(--text3)">by max profit · click to chart</span></div>
@@ -587,6 +694,20 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
             <button class="buy-sort-btn" onclick="setRecCat('lowrisk',this)">🛡 Low Risk</button>
             <button class="buy-sort-btn" onclick="setRecCat('highvalue',this)">💎 High Value</button>
             <button class="buy-sort-btn" onclick="setRecCat('budget',this)">💰 Budget (&lt;500k)</button>
+            <button class="buy-sort-btn" onclick="setRecCat('alchable',this)">⚗️ Alchable</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+          <div style="font-size:11px;color:var(--text2);font-weight:700">Category:</div>
+          <div id="rec-item-cats" style="display:flex;gap:5px;flex-wrap:wrap">
+            <button class="buy-sort-btn active" onclick="setRecItemCat('all',this)">All types</button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('rune',this)"><span class="cat-tag rune">Rune</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('potion',this)"><span class="cat-tag potion">Potion</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('food',this)"><span class="cat-tag food">Food</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('ammo',this)"><span class="cat-tag ammo">Ammo</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('gear',this)"><span class="cat-tag gear">Gear</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('herb',this)"><span class="cat-tag herb">Herb</span></button>
+            <button class="buy-sort-btn" onclick="setRecItemCat('bar',this)"><span class="cat-tag bar">Bar/Ore</span></button>
           </div>
           <span style="flex:1"></span>
           <span style="font-size:11px;color:var(--text3)">Live data · click to chart</span>
@@ -610,6 +731,8 @@ nav{display:flex;align-items:center;gap:1px;flex:1}
                 <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:right;text-transform:uppercase;letter-spacing:.5px">Limit</th>
                 <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:right;text-transform:uppercase;letter-spacing:.5px">1h Vol</th>
                 <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:left;text-transform:uppercase;letter-spacing:.5px">Conf</th>
+                <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:right;text-transform:uppercase;letter-spacing:.5px">Alch Profit</th>
+                <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:left;text-transform:uppercase;letter-spacing:.5px">Category</th>
                 <th style="padding:6px 13px;font-size:9px;font-weight:700;color:var(--text3);text-align:left;text-transform:uppercase;letter-spacing:.5px">Tags</th>
               </tr>
             </thead>
@@ -1043,10 +1166,12 @@ function renderWL(){
     else{mfStr=`+${Math.round(it.maxFlip)}`;mfColor='var(--text3)';}
     const mPct=it.marginPct!==null?`<span style="font-size:9px;font-family:'JetBrains Mono',monospace;color:${it.marginPct>=3?'var(--teal)':it.marginPct>=2?'var(--yellow)':'var(--red)'}">${it.marginPct.toFixed(1)}%</span>`:'<span style="color:var(--text3)">—</span>';
     const manipIcon=it.manip?'<span title="Possible manipulation" style="font-size:10px;margin-left:3px">🔮</span>':'';
+    const cat=getItemCategory(it.id);
+    const catHtml=cat?`<span class="cat-tag ${cat.cls}">${cat.emoji} ${cat.label}</span>`:'';
     return`<tr class="${hasBuy?'has-buy':it.manip?'manip-warn':''}" onclick="onRowClick(${it.id})">
       <td><div class="ic"><img src="${itemImgUrl(it.id)}" width="18" height="18" style="object-fit:contain;image-rendering:pixelated;flex-shrink:0" onerror="this.style.display='none'">
         <div><div class="nm">${it.name}${manipIcon}${squeezeBadge(it.id)}</div>
-        <div class="vl">${fmtVol(it.v)}/d · <span style="color:${it.hv>=100?'var(--teal)':'var(--text3)'}">${fmtVol(it.hv)}/1h</span></div></div></div></td>
+        <div class="vl">${fmtVol(it.v)}/d · <span style="color:${it.hv>=100?'var(--teal)':'var(--text3)'}">${fmtVol(it.hv)}/1h</span> ${catHtml}</div></div></div></td>
       <td class="pc" style="color:var(--green)">${it.bp?fmtS(it.bp):'—'}</td>
       <td class="pc" style="color:var(--red)">${it.sp?fmtS(it.sp):'—'}</td>
       <td>${mPct}</td>
@@ -1193,6 +1318,8 @@ function renderDashboard(){
   const lu=document.getElementById('lastUpd').textContent;
   document.getElementById('d-lastupdated').textContent=lu==='—'?'waiting…':lu.replace('Updated ','');
 
+  renderAlchPanel();
+
   // Top flips by maxFlip
   const flipItems=Object.keys(spreadData)
     .map(id=>({id:parseInt(id),sd:spreadData[id],name:mapping[id]?.name||'?'}))
@@ -1255,7 +1382,9 @@ function renderDashboard(){
 
 // ══ RECOMMENDED ══════════════════════════════════════════════════════════════
 let recCat='all';
+let recItemCat='all';
 function setRecCat(cat,btn){recCat=cat;document.querySelectorAll('#rec-cats .buy-sort-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderRecommended();}
+function setRecItemCat(cat,btn){recItemCat=cat;document.querySelectorAll('#rec-item-cats .buy-sort-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderRecommended();}
 
 function recScore(id){
   const sd=spreadData[id];if(!sd)return 0;
@@ -1263,7 +1392,6 @@ function recScore(id){
   const bp=buyPrices[id]||1;
   const spreadPct=sd.spread/bp;
   const conf=confidenceScore(id).score;
-  // Score = maxFlip * sqrt(1h_vol) * spreadPct * confidence multiplier
   return sd.maxFlip*Math.sqrt(hv+1)*spreadPct*(conf/50);
 }
 
@@ -1278,6 +1406,9 @@ function recTags(id){
   if(bp>=1000000) tags.push({cls:'hval',label:'High Value'});
   if(bp<500000) tags.push({cls:'lr',label:'Budget'});
   if(isManipulationRisk(id)) tags.push({cls:'manip',label:'⚠ Manip?'});
+  // Alch tag
+  const alch=getAlchProfit(id);
+  if(alch&&alch.profit>0) tags.push({cls:'hot',label:'⚗ Alchable'});
   return tags;
 }
 
@@ -1286,33 +1417,48 @@ function renderRecommended(){
   let candidates=Object.keys(spreadData).map(id=>parseInt(id))
     .filter(id=>mapping[id]&&spreadData[id]&&buyPrices[id]&&sellPrices[id]&&spreadData[id].maxFlip>0);
 
+  // Market filter
   if(recCat==='highvol') candidates=candidates.filter(id=>(hourVolRaw[id]?.high||0)+(hourVolRaw[id]?.low||0)>=1000);
   if(recCat==='highmargin') candidates=candidates.filter(id=>{const sd=spreadData[id];return sd&&(sd.spread/(buyPrices[id]||1))>=0.05;});
   if(recCat==='lowrisk') candidates=candidates.filter(id=>{const sd=spreadData[id];const bp=buyPrices[id]||1;return sd&&(sd.spread/bp)<0.04&&sd.maxFlip>30000&&!isManipulationRisk(id);});
   if(recCat==='highvalue') candidates=candidates.filter(id=>(buyPrices[id]||0)>=1000000);
   if(recCat==='budget') candidates=candidates.filter(id=>(buyPrices[id]||0)<500000);
+  if(recCat==='alchable') candidates=candidates.filter(id=>{const a=getAlchProfit(id);return a&&a.profit>0;});
+
+  // Item category filter
+  if(recItemCat!=='all') candidates=candidates.filter(id=>{const cat=getItemCategory(id);return cat&&cat.cat===recItemCat;});
 
   candidates.sort((a,b)=>recScore(b)-recScore(a));
   const top=candidates.slice(0,50);
   document.getElementById('recCnt').textContent=top.length;
 
-  if(!top.length){body.innerHTML='<tr><td colspan="12"><div class="empty">Loading data — check after first price fetch.</div></td></tr>';return;}
+  if(!top.length){body.innerHTML='<tr><td colspan="14"><div class="empty">No items match — try a different filter or wait for price data.</div></td></tr>';return;}
 
   body.innerHTML=top.map((id,i)=>{
     const sd=spreadData[id];
     const hv=(hourVolRaw[id]?.high||0)+(hourVolRaw[id]?.low||0);
     const bp=buyPrices[id]||1;
     const mpct=(sd.spread/bp)*100;
-    const roi=mpct; // ROI ≈ margin % (simplified, since qty doesn't change ROI)
+    const roi=mpct;
     const tags=recTags(id);
     const conf=confidenceScore(id);
     const gphr=gphrEstimate(id);
     const lim=mapping[id]?.limit||'—';
-    const score=recScore(id);const maxScore=recScore(top[0])||1;
-    const barW=Math.round((score/maxScore)*80);
+    const cat=getItemCategory(id);
+    const catHtml=cat?`<span class="cat-tag ${cat.cls}">${cat.emoji} ${cat.label}</span>`:'<span style="color:var(--text3);font-size:10px">—</span>';
+    // High alch profit
+    const alch=getAlchProfit(id);
+    let alchHtml='<span style="color:var(--text3);font-size:10px">—</span>';
+    if(alch){
+      if(alch.profit>0){
+        alchHtml=`<span class="alch-good" title="Alch value: ${fmtGP(alch.alchVal)} · Nature rune: ${fmtGP(alch.natCost)}">+${fmtGP(alch.profit)}</span>`;
+      } else {
+        alchHtml=`<span class="alch-bad" title="Would lose ${fmtGP(Math.abs(alch.profit))} alching">${fmtGP(alch.profit)}</span>`;
+      }
+    }
     return`<tr class="dash-tbl-row" onclick="openChart(${id})">
       <td style="color:var(--text3);font-size:10px;width:24px">${i+1}</td>
-      <td style="font-size:12px;font-weight:600;min-width:150px"><span style="display:flex;align-items:center;gap:5px"><img src="${itemImgUrl(id)}" width="18" height="18" style="object-fit:contain;image-rendering:pixelated" onerror="this.style.display='none'">${mapping[id].name}</span></td>
+      <td style="font-size:12px;font-weight:600;min-width:140px"><span style="display:flex;align-items:center;gap:5px"><img src="${itemImgUrl(id)}" width="18" height="18" style="object-fit:contain;image-rendering:pixelated" onerror="this.style.display='none'">${mapping[id].name}</span></td>
       <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green)">${fmtGP(bp)}</td>
       <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--red)">${fmtGP(sellPrices[id])}</td>
       <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:${mpct>=3?'var(--teal)':mpct>=2?'var(--yellow)':'var(--red)'}">${mpct.toFixed(1)}%</td>
@@ -1322,12 +1468,102 @@ function renderRecommended(){
       <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text2)">${typeof lim==='number'?lim.toLocaleString():lim}</td>
       <td style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text2)">${fmtVol(hv)}</td>
       <td><span class="conf-badge ${conf.cls}" style="font-size:8.5px">${conf.label}</span></td>
+      <td style="text-align:right">${alchHtml}</td>
+      <td>${catHtml}</td>
       <td>${tags.map(t=>`<span class="rec-tag ${t.cls}">${t.label}</span>`).join('')}</td>
     </tr>`;
   }).join('');
 }
 
-// ══ CHART MODAL ══════════════════════════════════════════════════════════════
+// ══ HIGH ALCH PANEL ══════════════════════════════════════════════════════════
+let alchSort='profit'; // 'profit' | 'roi' | 'vol'
+let alchOpen=true;
+
+function toggleAlchPanel(){
+  alchOpen=!alchOpen;
+  const panel=document.querySelector('.alch-panel');
+  const chev=document.getElementById('alchChevron');
+  if(panel){
+    panel.querySelector('.alch-info-strip').style.display=alchOpen?'':'none';
+    panel.querySelector('.alch-scroll-row').style.display=alchOpen?'':'none';
+  }
+  if(chev)chev.style.transform=alchOpen?'':'rotate(-90deg)';
+}
+
+function setAlchSort(mode,btn){
+  alchSort=mode;
+  document.querySelectorAll('[id^="alch-sort-"]').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  renderAlchPanel();
+}
+
+function renderAlchPanel(){
+  const body=document.getElementById('alchBody');if(!body)return;
+
+  // Live nature rune price
+  const natCost=prices[NATURE_RUNE_ID]||200;
+  const natEl=document.getElementById('alchNatCost');
+  if(natEl)natEl.textContent=natCost.toLocaleString()+' gp';
+
+  // Gather all items with highalch value and a live buy price
+  let candidates=Object.keys(mapping)
+    .map(id=>parseInt(id))
+    .filter(id=>{
+      const m=mapping[id];
+      if(!m||!m.highalch||m.highalch<1)return false;
+      const bp=buyPrices[id];if(!bp)return false;
+      return true;
+    })
+    .map(id=>{
+      const m=mapping[id];
+      const bp=buyPrices[id];
+      const alchVal=m.highalch;
+      const alchProfit=alchVal-bp-natCost;
+      const roiPct=bp>0?(alchProfit/bp)*100:0;
+      const dailyVol=volumes[id]||0;
+      const hv=hourVol[id]||0;
+      // Is there also a good flip margin?
+      const sd=spreadData[id];
+      const flipProfitable=sd&&sd.maxFlip>0;
+      return{id,name:m.name,bp,alchVal,alchProfit,roiPct,dailyVol,hv,flipProfitable,sd};
+    })
+    .filter(x=>x.alchProfit>0); // only show items where alching beats buying
+
+  // Sort
+  if(alchSort==='profit') candidates.sort((a,b)=>b.alchProfit-a.alchProfit);
+  if(alchSort==='roi')    candidates.sort((a,b)=>b.roiPct-a.roiPct);
+  if(alchSort==='vol')    candidates.sort((a,b)=>b.dailyVol-a.dailyVol);
+
+  const top=candidates.slice(0,30);
+  const cnt=document.getElementById('alchCnt');
+  if(cnt)cnt.textContent=candidates.length;
+
+  if(!top.length){
+    body.innerHTML='<div class="alch-empty">No alchable items found yet — waiting for price data…</div>';
+    return;
+  }
+
+  body.innerHTML=top.map((x,i)=>{
+    const isDual=x.flipProfitable;
+    const roiStr=x.roiPct>=0?`+${x.roiPct.toFixed(1)}%`:`${x.roiPct.toFixed(1)}%`;
+    const flipStr=isDual&&x.sd?`+${fmtGP(x.sd.maxFlip)} flip`:'';
+    return`<div class="alch-card ${isDual?'dual':'profitable'}" onclick="openChart(${x.id})" title="Click to view chart">
+      <span class="alch-card-rank">#${i+1}</span>
+      <div class="alch-card-img">
+        <img src="${itemImgUrl(x.id)}" width="20" height="20" style="object-fit:contain;image-rendering:pixelated;flex-shrink:0" onerror="this.style.display='none'">
+        <div class="alch-card-name">${x.name}</div>
+      </div>
+      <div class="alch-card-profit pos">+${x.alchProfit.toLocaleString()} gp</div>
+      <div class="alch-card-row"><span>Buy</span><span>${x.bp.toLocaleString()} gp</span></div>
+      <div class="alch-card-row"><span>Alch value</span><span>${x.alchVal.toLocaleString()} gp</span></div>
+      <div class="alch-card-row"><span>ROI</span><span style="color:${x.roiPct>=0?'var(--green)':'var(--red)'}">${roiStr}</span></div>
+      <div class="alch-card-row"><span>Daily vol</span><span>${fmtVol(x.dailyVol)}</span></div>
+      ${isDual?`<div style="margin-top:3px"><span class="alch-card-dual-badge">⚡ Alch &amp; Flip · ${flipStr}</span></div>`:''}
+    </div>`;
+  }).join('');
+}
+
+
 let chartItemId=null,chartRange='6h',chartData=null;
 let zoomStart=null,zoomEnd=null;
 
@@ -1418,13 +1654,28 @@ async function loadChart(id,range){
 function resetZoom(){zoomStart=null;zoomEnd=null;const btn=document.getElementById('zoomResetBtn');if(btn)btn.style.display='none';if(chartData)drawChart(document.getElementById('chartCanvas'),chartData,chartRange);}
 function getVisiblePts(){if(!chartData)return[];if(zoomStart===null)return chartData;const s=Math.min(zoomStart,zoomEnd),e=Math.max(zoomStart,zoomEnd);return chartData.slice(s,e+1);}
 
+// Format a price as a full uncompacted number with commas + " gp" — never abbreviated
+function fmtGPFull(n){
+  if(n==null||isNaN(n))return'—';
+  return Math.round(n).toLocaleString()+' gp';
+}
+
 function drawChart(canvas,pts,range,selStartX,selEndX){
   const dpr=window.devicePixelRatio||1;
   const rect=canvas.getBoundingClientRect();
   canvas.width=rect.width*dpr;canvas.height=rect.height*dpr;
   const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
   const W=rect.width,H=rect.height;
-  const PAD={t:16,r:72,b:36,l:12};
+
+  // Measure the widest Y-axis label dynamically so nothing ever gets clipped
+  // We need to know maxP before we can measure, so do a quick pre-pass
+  const allPricesPre=[...pts.map(p=>p.avgHighPrice||0),...pts.map(p=>p.avgLowPrice||0)].filter(v=>v>0);
+  const maxPPre=allPricesPre.length?Math.max(...allPricesPre)*1.08:1;
+  ctx.font='10px JetBrains Mono,monospace';
+  const sampleLabel=Math.round(maxPPre).toLocaleString()+' gp';
+  const labelW=ctx.measureText(sampleLabel).width;
+  const PAD={t:20,r:Math.ceil(labelW)+20,b:36,l:12};
+
   const cw=W-PAD.l-PAD.r,ch=H-PAD.t-PAD.b;
   const highs=pts.map(p=>p.avgHighPrice||p.avgLowPrice||0);
   const lows=pts.map(p=>p.avgLowPrice||p.avgHighPrice||0);
@@ -1486,9 +1737,17 @@ function drawChart(canvas,pts,range,selStartX,selEndX){
     ctx.beginPath();ctx.moveTo(ex,PAD.t);ctx.lineTo(ex,PAD.t+ch);ctx.stroke();
   }
 
-  // Y-axis labels
+  // Y-axis separator line
+  ctx.strokeStyle='rgba(30,45,61,0.8)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(W-PAD.r,PAD.t);ctx.lineTo(W-PAD.r,PAD.t+ch);ctx.stroke();
+
+  // Y-axis labels — full uncompacted integers with commas + " gp"
   ctx.fillStyle='rgba(74,101,128,0.9)';ctx.font='10px JetBrains Mono,monospace';ctx.textAlign='left';
-  for(let i=0;i<=5;i++){const v=minP+(maxP-minP)*(1-i/5);ctx.fillText(fmtS(Math.round(v)),W-PAD.r+8,PAD.t+ch*(i/5)+4);}
+  for(let i=0;i<=5;i++){
+    const v=minP+(maxP-minP)*(1-i/5);
+    const label=Math.round(v).toLocaleString()+' gp';
+    ctx.fillText(label,W-PAD.r+8,PAD.t+ch*(i/5)+4);
+  }
 
   // X-axis labels
   ctx.textAlign='center';ctx.font='10px Space Grotesk,sans-serif';ctx.fillStyle='rgba(74,101,128,0.8)';
@@ -1517,9 +1776,23 @@ function fmtTsLabel(ts,range){
 
 function setupChartHover(canvas,pts,range){
   const tooltip=document.getElementById('cmTooltip');
-  const PAD_L=12,PAD_R=72;
+  const PAD_L=12;
+  // Mirror the dynamic right-padding from drawChart so hit areas align perfectly
+  function getRightPad(){
+    const allP=[...pts.map(p=>p.avgHighPrice||0),...pts.map(p=>p.avgLowPrice||0)].filter(v=>v>0);
+    const maxP=allP.length?Math.max(...allP)*1.08:1;
+    const ctx2=canvas.getContext('2d');
+    ctx2.font='10px JetBrains Mono,monospace';
+    const lw=ctx2.measureText(Math.round(maxP).toLocaleString()+' gp').width;
+    return Math.ceil(lw)+20;
+  }
   let dragStartX=null,dragStartIdx=null,isDragging=false;
-  function xToIdx(mx,visLen){const W=canvas.getBoundingClientRect().width;const cw=W-PAD_L-PAD_R;return Math.round(Math.max(0,Math.min(1,(mx-PAD_L)/cw))*(visLen-1));}
+  function xToIdx(mx,visLen){
+    const W=canvas.getBoundingClientRect().width;
+    const PAD_R=getRightPad();
+    const cw=W-PAD_L-PAD_R;
+    return Math.round(Math.max(0,Math.min(1,(mx-PAD_L)/cw))*(visLen-1));
+  }
   canvas.style.cursor='crosshair';
   canvas.onmousedown=function(e){if(e.button!==0)return;const rect=canvas.getBoundingClientRect();dragStartX=e.clientX-rect.left;dragStartIdx=xToIdx(dragStartX,getVisiblePts().length);isDragging=false;tooltip.style.display='none';};
   canvas.onmousemove=function(e){
@@ -1528,14 +1801,15 @@ function setupChartHover(canvas,pts,range){
     const idx=xToIdx(mx,vis.length);if(idx<0||idx>=vis.length){tooltip.style.display='none';return;}
     const pt=vis[idx];
     document.getElementById('ttDate').textContent=fmtTsLabel(pt.timestamp*1000,range)+' '+new Date(pt.timestamp*1000).toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});
-    document.getElementById('ttHigh').textContent=pt.avgHighPrice?fmtGP(pt.avgHighPrice):'—';
-    document.getElementById('ttLow').textContent=pt.avgLowPrice?fmtGP(pt.avgLowPrice):'—';
+    // Full uncompacted prices in tooltip
+    document.getElementById('ttHigh').textContent=pt.avgHighPrice?fmtGPFull(pt.avgHighPrice):'—';
+    document.getElementById('ttLow').textContent=pt.avgLowPrice?fmtGPFull(pt.avgLowPrice):'—';
     const sp=pt.avgHighPrice&&pt.avgLowPrice?pt.avgHighPrice-pt.avgLowPrice:null;
-    document.getElementById('ttSpread').textContent=sp?fmtGP(sp):'—';
+    document.getElementById('ttSpread').textContent=sp?fmtGPFull(sp):'—';
     document.getElementById('ttVol').textContent=fmtVol((pt.highPriceVolume||0)+(pt.lowPriceVolume||0));
     tooltip.style.display='block';
     const W=rect.width;const tx=mx+14,ty=e.clientY-rect.top-20;
-    tooltip.style.left=(tx+160>W?mx-170:tx)+'px';tooltip.style.top=Math.max(0,ty)+'px';
+    tooltip.style.left=(tx+190>W?mx-195:tx)+'px';tooltip.style.top=Math.max(0,ty)+'px';
   };
   canvas.onmouseup=function(e){
     if(!isDragging){dragStartX=null;dragStartIdx=null;return;}
@@ -1659,6 +1933,79 @@ function toast(icon,type,title,msg){if(type!=='error'&&type!=='warn')return;cons
 function playBeep(s){try{const c=new(window.AudioContext||window.webkitAudioContext)();const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=s?880:440;o.type='sine';g.gain.setValueAtTime(.08,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.4);o.start();o.stop(c.currentTime+.4);}catch(e){}}
 function playBuyBeep(){try{const c=new(window.AudioContext||window.webkitAudioContext)();[523,659,784].forEach((f,i)=>{const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=f;o.type='triangle';const t=c.currentTime+i*.12;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.08,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.25);o.start(t);o.stop(t+.25);});}catch(e){}}
 function toggleSound(){soundOn=!soundOn;const b=document.getElementById('soundBtn');b.textContent=soundOn?'🔔 Sound':'🔕 Sound';b.className='hdr-btn'+(soundOn?' on':'');saveSettings();}
+
+// ══ MARKET HOURS CLOCK ═══════════════════════════════════════════════════════
+// Phase definitions in UTC hours:
+//   Off-peak:  00–11  (widest spreads, overnight flip window)
+//   EU Peak:   11–17  (active EU market, margins tighten)
+//   Overlap:   17–22  (EU+NA both online, highest volume / fastest fills)
+//   NA Peak:   22–24  (good activity, margins start recovering)
+// Weekend modifier: more PvM drops → lower gear/supply prices
+function getMarketPhase(){
+  const now=new Date();
+  const utcH=now.getUTCHours();
+  const utcM=now.getUTCMinutes();
+  const h=utcH+(utcM/60);
+  const isWeekend=now.getUTCDay()===0||now.getUTCDay()===6;
+  let phase,cls,tip;
+  if(h>=17&&h<22){phase='OVERLAP';cls='peak';tip='EU+NA both online · highest volume · fastest fills';}
+  else if(h>=11&&h<17){phase='EU PEAK';cls='eu';tip='EU prime time · active market · margins tightening';}
+  else if(h>=22||h<2){phase='NA PEAK';cls='na';tip='NA prime time · good fills · margins recovering';}
+  else{phase='OFF-PEAK';cls='offpeak';tip='Widest spreads · ideal for overnight buy offers';}
+  if(isWeekend){phase='WEEKEND';cls='weekend';tip='Weekend: more PvM drops → lower gear/supply prices';}
+  return{phase,cls,tip,isWeekend};
+}
+
+function updateClock(){
+  const now=new Date();
+  const h=String(now.getUTCHours()).padStart(2,'0');
+  const m=String(now.getUTCMinutes()).padStart(2,'0');
+  const s=String(now.getUTCSeconds()).padStart(2,'0');
+  const timeEl=document.getElementById('clockUtc');
+  const phaseEl=document.getElementById('clockPhase');
+  if(!timeEl||!phaseEl)return;
+  timeEl.textContent=`${h}:${m}:${s} UTC`;
+  const{phase,cls}=getMarketPhase();
+  phaseEl.textContent=phase;
+  phaseEl.className=`clock-phase ${cls}`;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// ══ ITEM CATEGORY ENGINE ══════════════════════════════════════════════════════
+// Categories derived from item name keywords — covers the most common GE flip categories
+const CAT_RULES=[
+  {cat:'rune',   cls:'rune',   label:'Rune',    emoji:'🔵', kw:['rune','blood rune','death rune','nature rune','law rune','chaos rune','cosmic rune','astral rune','soul rune','wrath rune','mind rune','body rune','fire rune','water rune','earth rune','air rune']},
+  {cat:'potion', cls:'potion', label:'Potion',  emoji:'🧪', kw:['potion','brew','prayer pot','super restore','antifire','antidote','stamina','ranging pot','magic pot','bastion','battlemage','divine','overload','saradomin brew','extended']},
+  {cat:'food',   cls:'food',   label:'Food',    emoji:'🍖', kw:['shark','anglerfish','manta ray','dark crab','karambwan','cooked','tuna','lobster','swordfish','bass','monkfish','trout','salmon','bread','pie','cake']},
+  {cat:'ammo',   cls:'ammo',   label:'Ammo',    emoji:'🏹', kw:['arrow','bolt','dart','javelin','cannonball','bullet','broad bolt','dragon arrow','amethyst']},
+  {cat:'herb',   cls:'herb',   label:'Herb',    emoji:'🌿', kw:['grimy','herb','ranarr','snapdragon','dwarf weed','torstol','lantadyme','kwuarm','avantoe','cadantine','toadflax','irit','guam','marrentill','harralander']},
+  {cat:'bar',    cls:'bar',    label:'Bar/Ore', emoji:'⛏',  kw:['ore','bar','coal','iron','steel','mithril','adamantite','runite','gold ore','silver','copper','tin','bronze bar','gold bar','orichalcite']},
+  {cat:'log',    cls:'log',    label:'Log',     emoji:'🪵',  kw:['log','plank','oak','willow','maple','yew','magic log','teak','mahogany']},
+  {cat:'gear',   cls:'gear',   label:'Gear',    emoji:'⚔️',  kw:['sword','whip','bow','crossbow','staff','wand','helm','platebody','platelegs','chainbody','shield','scimitar','dagger','spear','mace','axe','godsword','armour','armadyl','bandos','barrows','twisted','ancestral','void','elite','torva','justiciar','berserker','archers','seers','warrior','fury','zenyte','torture','anguish','occult','berserker ring','treasonous','tyrannical']},
+];
+
+function getItemCategory(id){
+  const m=mapping[id];if(!m)return null;
+  const name=m.name.toLowerCase();
+  for(const rule of CAT_RULES){
+    if(rule.kw.some(k=>name.includes(k)))return rule;
+  }
+  return{cat:'misc',cls:'misc',label:'Misc',emoji:'📦'};
+}
+
+// ══ HIGH ALCH CALCULATION ═════════════════════════════════════════════════════
+// High alch value is stored in mapping as 'highalch'
+// Nature rune cost fetched from live prices (id 561)
+const NATURE_RUNE_ID=561;
+function getAlchProfit(id){
+  const m=mapping[id];if(!m||!m.highalch)return null;
+  const alchVal=m.highalch;
+  const buyP=buyPrices[id];if(!buyP)return null;
+  const natCost=prices[NATURE_RUNE_ID]||200; // fallback 200gp
+  const profit=alchVal-buyP-natCost;
+  return{alchVal,profit,natCost};
+}
 
 init();
 </script>
